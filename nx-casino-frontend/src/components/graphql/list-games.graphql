@@ -1,0 +1,10 @@
+query listGames {
+  games {
+    id
+    icon
+    provider
+    cta
+    name
+    status
+  }
+}

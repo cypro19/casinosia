@@ -1,0 +1,31 @@
+version: "3.5"
+services:
+  casino-node-backend:
+    build:
+      context: "."
+    container_name: casino-node-backend
+    tty: true
+    command: ["npm", "run", "start"]
+    volumes:
+      - /home/node/app/node_modules/
+      - ./casino-node-backend:/home/node/app/
+    ports:
+      - ${HOST_PORT}:4000
+
+  database:
+    image: postgres:12.1
+    volumes:
+      - ./casino-node-backend:/home/node/app/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres_database
+      POSTGRES_PASSWORD: postgres__database
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./casino-node-backend/redis-data:/var/lib/redis
+      - ./casino-node-backend/redis.conf:/usr/local/etc/redis/redis.conf

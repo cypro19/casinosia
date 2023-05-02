@@ -1,0 +1,5 @@
+.infoModalLabels .row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 70px 10px 0;
+}

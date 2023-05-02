@@ -1,0 +1,14 @@
+mutation registerUser($input: UserRegistrationForm!) {
+  signUpUser(input: $input) {
+    address
+    birthDate
+    city
+    country
+    currency
+    email
+    lastName
+    userId
+    gender
+    firstName
+  }
+}

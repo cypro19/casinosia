@@ -1,0 +1,16 @@
+export const SUCCESS_MSG = {
+  CREATE_SUCCESS: "Record created successfully",
+  GET_SUCCESS: "Record get successfully",
+  DELETE_SUCCESS: "Record deleted successfully",
+  UPDATE_SUCCESS: "Record updated successfully",
+  STATUS_UPDATED: "Status has been updated successfully",
+  ADD_FAVORITE: "Game added to favorites successfully",
+  REMOVE_FAVORITE: "Game removed from favorites successfully",
+  UPLOAD_SUCCESS: "Profile image uploaded successfully",
+  REMOVE_SUCCESS: "Profile image removed successfully",
+  PASSWORD_RESET: "Password updated",
+  KYC_VERIFIED: "KYC is already verified on some other portal",
+  AVAIL_BONUS: "Bonus Availed successfully.",
+  CANCEL_SUCCESS: "Bonus cancelled successfully",
+  EMAIL_SENT: "Email sent successfully",
+};

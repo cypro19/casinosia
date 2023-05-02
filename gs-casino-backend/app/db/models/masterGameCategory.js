@@ -1,0 +1,43 @@
+"use strict";
+
+module.exports = (sequelize, DataTypes) => {
+  const MasterGameCategory = sequelize.define(
+    "MasterGameCategory",
+    {
+      masterGameCategoryId: {
+        autoIncrement: true,
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+      },
+      name: {
+        type: DataTypes.JSONB,
+        allowNull: false,
+      },
+      isActive: {
+        type: DataTypes.BOOLEAN,
+        allowNull: true,
+        defaultValue: true,
+      },
+      orderId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+    },
+    {
+      sequelize,
+      tableName: "master_game_categories",
+      schema: "casino_system",
+      timestamps: true,
+      underscored: true,
+    }
+  );
+
+  MasterGameCategory.associate = function (model) {
+    MasterGameCategory.hasMany(model.MasterGameSubCategory, {
+      foreignKey: "masterGameCategoryId",
+    });
+  };
+
+  return MasterGameCategory;
+};

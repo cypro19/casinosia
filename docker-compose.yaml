@@ -1,0 +1,213 @@
+version: "3.9"
+services:
+  nx-casino-frontend:
+    container_name: nx-casino-frontend
+    volumes:
+      - ./nx-casino-frontend:/nx-casino-frontend
+      - ~/.aws/:/home/node/.aws:ro
+    build:
+      context: "nx-casino-frontend"
+      dockerfile: Dockerfile
+      target: runner
+    ports:
+      - 3000:3000
+    environment:
+      DATABASE_USERNAME: postgres_database
+      DATABASE_PASSWORD: postgres__database
+      DATABASE_PORT: 5432
+      DATABASE_NAME: casino_db
+      DATABASE_HOST: database
+      COGNITO_ENDPOINT: http://cognito:9229
+      AWS_PROFILE: nx-dev
+      AWS_SDK_LOAD_CONFIG: 1
+      AWS_REGION: eu-central-1
+      NEXTAUTH_SECRET: ay_lalisa_love_me_lalisa_love_me_heyder/dist/cjs.js??rul
+      COGNITO_CLIENT_ID: test-client-id
+      COGNITO_USER_POOL_ID: test-user-pool-id
+      COGNITO_REGION: eu-central-1
+    depends_on:
+      gs-admin-backend:
+        condition: service_healthy
+      cognito:
+        condition: service_healthy
+  management-frontend:
+    container_name: management-frontend
+    volumes:
+      - ./management-frontend:/management-frontend
+    build:
+      context: "management-frontend"
+      dockerfile: Dockerfile
+      target: runner
+    ports:
+      - 8001:8001
+  cognito:
+    image: jagregory/cognito-local:latest
+    ports:
+      - 9229:9229
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl -Is http://localhost:9229 > /dev/null &2>1 || exit 1",
+        ]
+      interval: 1s
+      start_period: 15s
+      timeout: 5s
+      retries: 3
+  database:
+    image: postgres:12.1
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres_database
+      POSTGRES_PASSWORD: postgres__database
+    logging:
+      driver: none
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres_database"]
+      interval: 1s
+      start_period: 15s
+      timeout: 5s
+      retries: 3
+  opensearch:
+    image: opensearchproject/opensearch
+    container_name: opensearch
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - 9200:9200
+      - 9600:9600
+    logging:
+      driver: none
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl --silent --fail --insecure https://admin:admin@localhost:9200/_cluster/health || exit 1",
+        ]
+      interval: 5s
+      timeout: 5s
+      start_period: 15s
+      retries: 3
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards
+    container_name: opensearch-dashboards
+    ports:
+      - 5601:5601 # Map host port 5601 to container port 5601
+    expose:
+      - "5601" # Expose port 5601 for web access to OpenSearch Dashboards
+    environment:
+      OPENSEARCH_HOSTS: '["https://opensearch:9200"]'
+    logging:
+      driver: none
+    depends_on:
+      opensearch:
+        condition: service_healthy
+  gs-admin-backend:
+    container_name: gs-admin-backend
+    volumes:
+      - ./gs-admin-backend:/gs-admin-backend
+    build:
+      context: "gs-admin-backend"
+      dockerfile: Dockerfile
+      target: runner
+    ports:
+      - 4000:4000
+    environment:
+      DB_USER: postgres_database
+      DB_PASSWORD: postgres__database
+      DB_NAME: casino_db
+      DB_PORT: 5432
+      DB_HOST: database
+      ENABLE_CORS: "true"
+      ELASTIC_URL: https://opensearch:9200
+      ELASTIC_USER: admin
+      ELASTIC_PASSWORD: admin
+      PORT: 4000
+      SECRET_KEY: "glpat-Dg6DWhJbVoWMqydy-vSU"
+      JWT_LOGIN_SECRET: test
+      CREDENTIAL_ENCRYPTION_KEY: test
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl --silent --fail --insecure http://localhost:4000/api/health || exit 1",
+        ]
+      interval: 1s
+      start_period: 15s
+      timeout: 5s
+      retries: 3
+    depends_on:
+      database:
+        condition: service_healthy
+      opensearch:
+        condition: service_healthy
+  gs-admin-frontend:
+    container_name: gs-admin-frontend
+    volumes:
+      - ./gs-admin-frontend:/gs-admin-frontend
+    build:
+      context: "gs-admin-frontend"
+      dockerfile: Dockerfile
+      target: runner
+    ports:
+      - 3002:3002
+    stdin_open: true
+    environment:
+      # used by frontend thats why localhost instead of gs-admin-backend
+      REACT_APP_API_URL: http://localhost:4000
+  gs-casino-backend:
+    container_name: gs-casino-backend
+    volumes:
+      - ./gs-casino-backend:/gs-casino-backend
+    build:
+      context: "gs-casino-backend"
+      dockerfile: Dockerfile
+      target: runner
+    ports:
+      - 5000:5000
+    environment:
+      DB_USER: postgres_database
+      DB_PASSWORD: postgres__database
+      DB_NAME: casino_db
+      DB_PORT: 5432
+      DB_HOST: database
+      ENABLE_CORS: "true"
+      ELASTIC_URL: https://opensearch:9200
+      ELASTIC_USER: admin
+      ELASTIC_PASSWORD: admin
+      PORT: 5000
+      VERIFICATION_TOKEN_SECRET: test
+      JWT_LOGIN_SECRET: test
+      SECRET_KEY: test
+    depends_on:
+      gs-admin-backend:
+        condition: service_healthy
+  gs-casino-services:
+    container_name: gs-casino-services
+    volumes:
+      - ./gs-casino-services:/gs-casino-services
+    build:
+      context: "gs-casino-services"
+      dockerfile: Dockerfile
+      target: runner
+    ports:
+      - 5500:5500
+    environment:
+      DB_USER: postgres_database
+      DB_PASSWORD: postgres__database
+      DB_NAME: casino_db
+      DB_PORT: 5432
+      DB_HOST: database
+      ELASTIC_URL: https://opensearch:9200
+      ELASTIC_USER: admin
+      ELASTIC_PASSWORD: admin
+      PORT: 5500
+    depends_on:
+      gs-admin-backend:
+        condition: service_healthy

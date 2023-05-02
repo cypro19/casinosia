@@ -1,0 +1,461 @@
+{
+  "language": {
+    "en": {
+      "full": "English",
+      "short": "En"
+    },
+    "de": {
+      "full": "German",
+      "short": "De"
+    }
+  },
+  "page": {
+    "playerProfile": {
+      "name": "PlayerProfile",
+      "fields": {
+        "account": {
+          "id": "ID",
+          "cur": "CUR",
+          "balance": "BALANCE",
+          "deposit": "DEPOSIT",
+          "cashout": "CASHOUT",
+          "pendingCashout": "PENDING CASHOUT",
+          "refundsSum": "REFUNDS SUM",
+          "reversals": "REVERSALS",
+          "affiliates": "AFFILIATES",
+          "gifts": "GIFTS",
+          "ngr": "NGR",
+          "bonuses": "BONUSES",
+          "bonusRatio": "BONUS RATIO"
+        },
+        "compPointAccounts": {
+          "id": "ID",
+          "history": "HISTORY",
+          "accountType": "ACCOUNT TYPE",
+          "point": "POINT",
+          "microPoints": "MICROPOINTS"
+        },
+        "issuedBonuses": {
+          "id": "ID",
+          "issuedAt": "ISSUED AT",
+          "bonus": "BONUS",
+          "amount": "AMOUNT",
+          "stage": "STAGE",
+          "amountLocked": "AMOUNT LOCKED",
+          "wager": "WAGER",
+          "expired": "EXPIRED",
+          "action": "ACTION"
+        },
+        "issuedFreeSpins": {
+          "id": "ID",
+          "issuedAt": "ISSUED AT",
+          "freespins": "FREESPINS",
+          "stage": "STAGE",
+          "winAmount": "WIN AMOUNT",
+          "wager": "WAGER",
+          "expired": "EXPIRED",
+          "action": "ACTION"
+        },
+        "lastPayments": {
+          "source": "SOURCE",
+          "currency": "CURRENCY",
+          "adminUser": "ADMIN USER",
+          "manual": "MANUAL",
+          "returnType": "RETURN TYPE",
+          "comment": "COMMENT",
+          "success": "SUCCESS",
+          "finishedAt": "FINISHED AT"
+        },
+        "lastEvents": {
+          "date": "DATE",
+          "eventType": "EVENT TYPE",
+          "ip": "IP",
+          "address": "ADDRESS",
+          "device": "DEVICE",
+          "coordinates": "COORDINATES"
+        }
+      },
+      "typography": {
+        "accounts": "Accounts",
+        "compPointAccounts": "Comp Point Accounts",
+        "issuedBonuses": "Issued Bonuses",
+        "issuedFreeSpins": "Issued Free Spins",
+        "lastPayments": "Last Payments",
+        "lastEvents": "Last Events",
+        "gameType": "Game Type",
+        "slots": "Slots",
+        "table": "Table",
+        "liveCasino": "LiveCasino",
+        "fullName": "Full Name",
+        "phone": "Phone",
+        "email": "Email",
+        "signedFrom": "Signed From",
+        "lastSession": "Last Session",
+        "lastIP": "Last IP",
+        "created": "Created",
+        "terms": "Terms",
+        "affiliate": "Affiliate",
+        "manager": "Manager",
+        "notVerified": "Not Verified",
+        "verify": "Verify",
+        "sendSMS": "Send SMS",
+        "edit": "Edit",
+        "sendMail": "Send Mail",
+        "tags": "Tags",
+        "groups": "Groups",
+        "status": "Status",
+        "active": " Active",
+        "playerInfo": "Player Info",
+        "balance": "Balance",
+        "deposits": "Deposits",
+        "cashouts": "Cashouts",
+        "netRevenue": "Net Revenue",
+        "points": "Points",
+        "bonusRate": "Bonus Rate",
+        "cashouteRate": "Cashoute Rate",
+        "lastOnline": "Last Online"
+      },
+      "links": {
+        "overview": "Overview",
+        "limitsAndDocs": "Limits & Docs",
+        "changeHistory": "Change History",
+        "sessioAndEvents": "Session & Events",
+        "comments": "Comments",
+        "suspicions": "Suspicions",
+        "gameAndBets": "Game & Bets"
+      },
+      "buttons": {
+        "addTag": "+ Add Tag",
+        "addGroup": "+ Add Group",
+        "changeBalances": "Change Balances",
+        "exchangePoints": "Exchange Points",
+        "issuesBonus": "+ Issues Bonus",
+        "allBonusIssued": "All Bonus Issued",
+        "issueFreeSpins": "+ Issue Free Spins",
+        "allFreeSpinsIssued": "All Free Spins Issued",
+        "allLastPayments": "All Last Payments",
+        "allEvents": "All Events"
+      }
+    },
+    "dashboard": {
+      "name": "Dashboard",
+      "components": {
+        "date-range": {
+          "today": "Today",
+          "yesterday": "Yesterday",
+          "week": "Week",
+          "month": "Month",
+          "last30days": "Last 30 Days",
+          "custom": "Custom"
+        }
+      },
+      "panels": {
+        "cashouts": {
+          "title": "Cashouts",
+          "button": "See All Cashouts"
+        },
+        "deposits": {
+          "title": "Deposits",
+          "button": "See All Deposits"
+        },
+        "ftds": {
+          "title": "FTDs"
+        },
+        "ngr": {
+          "title": "NGR"
+        },
+        "pending-cashout": {
+          "title": "Pending Cashout",
+          "button": "See All Pendings"
+        },
+        "players-online": {
+          "title": "Players Online"
+        },
+        "statistics": {
+          "deposits": "Deposits",
+          "ggr": "GGR",
+          "ftds": "FTDS"
+        },
+        "top-depositors": {
+          "title": "Top Depositors",
+          "button": "See All Depositors"
+        },
+        "top-games": {
+          "title": "Top Games",
+          "button": "See All Games"
+        },
+        "top-winnings": {
+          "title": "Top Winnings",
+          "button": "See All Winnings"
+        }
+      }
+    },
+    "games": {
+      "name": "GamesProvider",
+      "fields": {
+        "id": "ID",
+        "name": "Name",
+        "software-provider": "Software Provider",
+        "collections": "Collections",
+        "rtp": "RTP",
+        "devices": "Devices",
+        "min-bet": "Min. Bet"
+      },
+      "search": {
+        "search": {
+          "label": "Search",
+          "placeholder": "Game name, ID or keyword"
+        },
+        "software-provider": {
+          "label": "Software Provider",
+          "placeholder": "Select Software Provider"
+        },
+        "featured": {
+          "label": "Features",
+          "placeholder": "Select Features"
+        },
+        "status": {
+          "label": "Status",
+          "labels": {
+            "active": "Active",
+            "inactive": "Inactive",
+            "newly-imported": "Newly Imported"
+          }
+        }
+      },
+      "buttons": {
+        "bulk-actions": "Bulk Actions",
+        "add-category": "Add Category",
+        "add-feature": "Add Feature",
+        "set-theme": "Set Theme",
+        "append-to-collection": "Append to Collection",
+        "prepend-to-collection": "Prepend to Collection",
+        "enable": "Enable",
+        "disable": "Disable",
+        "delete": "Delete",
+        "manage-currencies": "Manage Currencies",
+        "import": "Import",
+        "add-games": "Add Games"
+      }
+    },
+    "gameCategories": {
+      "name": "Categories"
+    },
+    "gameCollections": {
+      "name": "Collections"
+    },
+    "gameFeatures": {
+      "name": "Features"
+    },
+    "gameIntegrations": {
+      "name": "Integrations"
+    },
+    "players": {
+      "name": "Players",
+      "fields": {
+        "id": "ID",
+        "email": "Email",
+        "name": "Name",
+        "balance": "Balance",
+        "deposits": "Deposits",
+        "withdrawals": "Withdrawals",
+        "currency": "Currency",
+        "lastlogin": "Last Login",
+        "affiliateID": "Affiliate ID",
+        "registeredDate": "Registered date",
+        "country": "Country",
+        "personalVerification": "Personal verification",
+        "paymentsVerification": "Payments verification",
+        "paymentMethod": "Payment method",
+        "depositNumbers": "Deposit numbers",
+        "managers": "Managers",
+        "cashoutNumbers": "Cashout numbers",
+        "phoneNumber": "Phone number",
+        "tags": "Tags",
+        "groups": "Groups",
+        "points": "Points",
+        "lastUsedIP": "Last used IP",
+        "netRevenue": "Net Revenue",
+        "smsOptIn": "Sms opt-in",
+        "emailOptIn": "Email opt-in"
+      },
+      "search": {
+        "search": {
+          "label": "Search",
+          "placeholder": "Id, Email, name"
+        },
+        "country": {
+          "label": "Country",
+          "placeholder": "Select Multiple"
+        },
+        "profileStatus": {
+          "label": "Profile status",
+          "placeholder": "ALL"
+        },
+        "exclusionStatus": {
+          "label": "Exclusion status",
+          "placeholder": "ALL"
+        },
+        "receivedBonus": {
+          "label": "Received bonus",
+          "placeholder": "ALL"
+        },
+        "gamesPlayed": {
+          "label": "Games played",
+          "placeholder": "Value"
+        },
+        "tag": {
+          "label": "Tag",
+          "placeholder": "ALL"
+        },
+        "group": {
+          "label": "Group",
+          "placeholder": "ALL"
+        },
+        "currency": {
+          "label": "Currency",
+          "placeholder": "ALL"
+        },
+        "balanceFrom": {
+          "label": "Balance from",
+          "placeholder": "Value"
+        },
+        "balanceTill": {
+          "label": "Balance till",
+          "placeholder": "Value"
+        },
+        "depositsFrom": {
+          "label": "Deposits from",
+          "placeholder": "Value"
+        },
+        "depositsTill": {
+          "label": "Deposits till",
+          "placeholder": "Value"
+        },
+        "withdrawlFrom": {
+          "label": "withdrawl from",
+          "placeholder": "Value"
+        },
+        "withdrawlTill": {
+          "label": "withdrawl till",
+          "placeholder": "Value"
+        },
+        "pointsFrom": {
+          "label": "Points from",
+          "placeholder": "Value"
+        },
+        "pointsTill": {
+          "label": "Points till",
+          "placeholder": "Value"
+        },
+        "affiliate": {
+          "label": "Affiliate",
+          "placeholder": "Value"
+        },
+        "manager": {
+          "label": "Manager",
+          "placeholder": "ALL"
+        },
+        "registeredFrom": {
+          "label": "Registered from",
+          "placeholder": "Value"
+        },
+        "registeredTo": {
+          "label": "Registered to",
+          "placeholder": "Value"
+        },
+        "optInBySms": {
+          "label": "Opt-in by SMS",
+          "placeholder": "ALL"
+        },
+        "optInByEmail": {
+          "label": "Opt-in by Email",
+          "placeholder": "ALL"
+        }
+      },
+      "entries": {
+        "showing-entries": "Showing {{startIndex}} to {{endIndex}} of {{totalEntries}} entries"
+      },
+      "buttons": {
+        "select-action": "Select action",
+        "add-bonus": "Add bonus",
+        "block": "Block",
+        "unblock": "Unblock",
+        "add-tag": "Add tag",
+        "add-group": "Add group",
+        "block-bonus": "Block bonus",
+        "add-manager": "Add manager",
+        "submit": "Submit",
+        "export": "Export",
+        "save-changes": "Save Changes"
+      },
+      "typography": {
+        "columnSettings": "Column settings"
+      }
+    },
+    "playerGroups": {
+      "name": "Groups"
+    },
+    "playerTags": {
+      "name": "Tags"
+    },
+    "playerBets": {
+      "name": "Bets"
+    },
+    "playerSuspicions": {
+      "name": "Suspicions"
+    }
+  },
+  "calendar": {
+    "months": {
+      "1": {
+        "full": "January",
+        "short": "Jan"
+      },
+      "2": {
+        "full": "February",
+        "short": "Feb"
+      },
+      "3": {
+        "full": "March",
+        "short": "Mar"
+      },
+      "4": {
+        "full": "April",
+        "short": "Apr"
+      },
+      "5": {
+        "full": "May",
+        "short": "May"
+      },
+      "6": {
+        "full": "June",
+        "short": "Jun"
+      },
+      "7": {
+        "full": "July",
+        "short": "Jul"
+      },
+      "8": {
+        "full": "August",
+        "short": "Aug"
+      },
+      "9": {
+        "full": "September",
+        "short": "Sept"
+      },
+      "10": {
+        "full": "October",
+        "short": "Oct"
+      },
+      "11": {
+        "full": "November",
+        "short": "Nov"
+      },
+      "12": {
+        "full": "December",
+        "short": "Dec"
+      }
+    }
+  }
+}

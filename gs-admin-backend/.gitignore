@@ -1,0 +1,7 @@
+.env
+.env.backup
+node_modules
+**http_ca.crt
+.VSCodeCounter
+.idea/*
+dist

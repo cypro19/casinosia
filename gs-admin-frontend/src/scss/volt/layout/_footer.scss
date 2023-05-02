@@ -1,0 +1,5 @@
+.footerMargin {
+  @include media-breakpoint-up(md) {
+    margin-left: 285px;
+  }
+}

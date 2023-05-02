@@ -1,0 +1,21 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.words": [
+    "apigatewayv",
+    "badrap",
+    "bodyparser",
+    "Brotli",
+    "BURSTABLE2",
+    "certificatemanager",
+    "Networx",
+    "nextjs",
+    "OPENSEARCH",
+    "opensearchservice",
+    "typeorm",
+    "valita"
+  ]
+}

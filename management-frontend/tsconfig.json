@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "ESNext",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": false,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strict": true,
+    "typeRoots": ["node_modules/@types"],
+    "baseUrl": "src",
+    "resolveJsonModule": true,
+    "paths": {
+      "@reusable/*": ["components/*"],
+      "@assets/*": ["assets/*"]
+    }
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "target": "es5",
+      "module": "CommonJS",
+      "moduleResolution": "node",
+      "allowSyntheticDefaultImports": true,
+      "noImplicitAny": false
+    }
+  },
+  "include": ["src", "src/types.d.ts"],
+  "exclude": ["webpack"]
+}

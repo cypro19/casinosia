@@ -1,0 +1,8 @@
+.env
+node_modules
+scripts
+**http_ca.crt
+scripts
+package-lock.json
+.VSCodeCounter
+dist/*

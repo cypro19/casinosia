@@ -1,0 +1,15 @@
+.header-select {
+  height: 30px;
+  padding: 2px 25px 2px 20px;
+  position: relative;
+  bottom: 7px;
+}
+.header.main-nav {
+  height: 40px;
+}
+.header img {
+  height: 50px;
+  width: 50px;
+  position: relative;
+  bottom: 7px;
+}

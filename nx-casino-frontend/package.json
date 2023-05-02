@@ -1,0 +1,48 @@
+{
+  "name": "nx-casino-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "build-open-next": "open-next build",
+    "start": "next dev",
+    "start:build": "next start",
+    "codegen": "graphql-codegen --config codegen.ts"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.7.10",
+    "@apollo/server": "^4.4.1",
+    "@aws-sdk/client-cognito-identity-provider": "^3.288.0",
+    "@aws-sdk/client-secrets-manager": "^3.288.0",
+    "@badrap/valita": "^0.2.0",
+    "@graphql-codegen/typescript-generic-sdk": "^3.1.0",
+    "@graphql-tools/mock": "^8.7.19",
+    "@townsheriff/open-next": "^0.0.10",
+    "@types/jwt-decode": "^3.1.0",
+    "@types/node": "18.14.2",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "aws-crt": "^1.15.9",
+    "aws-jwt-verify": "^3.4.0",
+    "dotenv": "^16.0.3",
+    "graphql": "^16.6.0",
+    "jwt-decode": "^3.1.2",
+    "next": "npm:@townsheriff/next@^13.2.5-canary.0",
+    "pg": "^8.9.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.5",
+    "reflect-metadata": "^0.1.13",
+    "server-only": "^0.0.1",
+    "styled-components": "^6.0.0-beta.12",
+    "type-graphql": "^2.0.0-beta.1",
+    "typeorm": "^0.3.12",
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "3.2.2",
+    "@graphql-codegen/typescript": "^3.0.2",
+    "@graphql-codegen/typescript-operations": "^3.0.2",
+    "@graphql-codegen/typescript-react-apollo": "^3.3.7"
+  }
+}

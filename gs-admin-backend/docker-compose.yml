@@ -1,0 +1,57 @@
+version: "3.5"
+services:
+  # admin-node-backend:
+  #   build:
+  #     context: '.'
+  #   container_name: admin-node-backend
+  #   tty: true
+  #   command: ["npm", "run", "start"]
+  #   volumes:
+  #     - /home/node/app/node_modules/
+  #     - ./admin-node-backend:/home/node/app/
+  #   ports:
+  #     - ${HOST_PORT}:4000
+
+  # elasticsearch:
+  #   image: docker.elastic.co/elasticsearch/elasticsearch:8.3.2
+  #   environment:
+  #     - bootstrap.memory_lock=true
+  #     - discovery.type=single-node
+  #     - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
+  #     - ELASTIC_PASSWORD=elasticOleg__kibana
+  #     - xpack.security.enabled=true
+  #   ulimits:
+  #     memlock:
+  #       soft: -1
+  #       hard: -1
+  #   volumes:
+  #     - ./admin-node-backend:/home/node/app/elasticsearch/data:rw
+  #   ports:
+  #     - 8001:9200
+  #     - 9300:9300
+
+  # kibana:
+  #   image: docker.elastic.co/kibana/kibana:8.0.0
+  #   ports:
+  #     - "5601:5601"
+  #   environment:
+  #     - ELASTICSEARCH_USERNAME=elastic
+  #     - ELASTICSEARCH_PASSWORD=elasticOleg__kibana
+  #     - xpack.security.enabled=true
+
+  database:
+    image: postgres:12.1
+    volumes:
+      - ./admin-node-backend:/home/node/app/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres_database
+      POSTGRES_PASSWORD: postgres__database
+  # redis:
+  #   image: "redis:alpine"
+  #   ports:
+  #    - "6379:6379"
+  #   volumes:
+  #     - ./admin-node-backend/redis-data:/var/lib/redis
+  #     - ./admin-node-backend/redis.conf:/usr/local/etc/redis/redis.conf

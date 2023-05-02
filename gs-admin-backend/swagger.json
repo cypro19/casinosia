@@ -1,0 +1,81 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "GS High Casino Swagger Documentation",
+    "version": "1.0.0",
+    "title": "GS High Casino"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [],
+  "schemes": ["http"],
+  "paths": {
+    "/healthcheck": {
+      "get": {
+        "tags": ["health check"],
+        "summary": "health check",
+        "description": "health check api",
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string",
+              "items": "Ok"
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/login": {
+      "post": {
+        "tags": ["Player APIS"],
+        "summary": "Player Login",
+        "description": "Player login api",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "userLogin",
+            "in": "body",
+            "description": "API request body",
+            "schema": {
+              "$ref": "#/definitions/userLogin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/playerLoginResponse"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "userLogin": {
+      "type": "object",
+      "required": ["email", "password"],
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "superadmin2@gammastack.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "MTIzNDU2Nzg5"
+        }
+      }
+    },
+    "playerLoginResponse": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+}

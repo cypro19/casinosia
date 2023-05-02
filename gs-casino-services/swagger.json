@@ -1,0 +1,32 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "GS High Casino Swagger Documentation",
+    "version": "1.0.0",
+    "title": "GS High Casino"
+  },
+  "host": "localhost:6000",
+  "basePath": "/",
+  "tags": [],
+  "schemes": ["http"],
+  "paths": {
+    "/healthcheck": {
+      "get": {
+        "tags": ["health check"],
+        "summary": "health check",
+        "description": "health check api",
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string",
+              "items": "Ok"
+            }
+          }
+        }
+      }
+    }
+  }
+}

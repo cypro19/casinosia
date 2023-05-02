@@ -1,0 +1,36 @@
+FROM node:16.14.0-alpine as admin-node-backend
+
+# install dependecies
+RUN apk update
+
+# install dependecies
+RUN apk update
+RUN apk add --no-cache git build-base gcc abuild make bash
+
+RUN apk add --no-cache bash postgresql-client
+# Add Tini
+RUN apk add --no-cache tini
+
+RUN npm install -g npm@8.5.1
+
+RUN mkdir -p /home/node/admin-node-backend
+RUN mkdir -p /home/node/admin-node-backend/dist
+RUN mkdir -p /home/node/admin-node-backend/dist/views
+RUN chown node:node -R /home/node/admin-node-backend
+
+#USER node
+
+WORKDIR /home/node/admin-node-backend
+
+
+ARG NODE_ENV=development
+
+ENV NODE_ENV $NODE_ENV
+
+COPY ./package.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN make build

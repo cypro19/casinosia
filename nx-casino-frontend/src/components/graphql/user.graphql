@@ -1,0 +1,28 @@
+query loginUser($input: UserPasswordLogin!) {
+  loginWithPassword(input: $input) {
+    userId
+    refreshToken
+    idToken
+    expiresIn
+    accessToken
+  }
+}
+
+query loginWithRefreshToken($input: UserRefreshTokenLogin!) {
+  loginWithRefreshToken(input: $input) {
+    userId
+    idToken
+    accessToken
+    expiresIn
+  }
+}
+
+query logout {
+  logout
+}
+
+query getUser {
+  user {
+    userId
+  }
+}
